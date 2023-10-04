@@ -1,0 +1,51 @@
+// import 'package:flutter/material.dart';
+//
+// class BeerListView extends StatefulWidget {
+//   @override
+//   _BeerListViewState createState() => _BeerListViewState();
+// }
+//
+// class _BeerListViewState extends State<BeerListView> {
+//   static const _pageSize = 20;
+//
+//   final PagingController _pagingController =
+//   PagingController(firstPageKey: 0);
+//
+//   @override
+//   void initState() {
+//     _pagingController.addPageRequestListener((pageKey) {
+//       _fetchPage(pageKey);
+//     });
+//     super.initState();
+//   }
+//
+//   Future<void> _fetchPage(int pageKey) async {
+//     try {
+//       final newItems = await RemoteApi.getBeerList(pageKey, _pageSize);
+//       final isLastPage = newItems.length < _pageSize;
+//       if (isLastPage) {
+//         _pagingController.appendLastPage(newItems);
+//       } else {
+//         final nextPageKey = pageKey + newItems.length;
+//         _pagingController.appendPage(newItems, nextPageKey);
+//       }
+//     } catch (error) {
+//       _pagingController.error = error;
+//     }
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) =>
+//       PagedListView<int, BeerSummary>(
+//         pagingController: _pagingController,
+//         builderDelegate: PagedChildBuilderDelegate<BeerSummary>(
+//           itemBuilder: (context, item, index) => BeerListItem(
+//             beer: item,
+//           ),
+//         ),
+//       );
+//
+//
+//
+// class PagingController {
+// }
